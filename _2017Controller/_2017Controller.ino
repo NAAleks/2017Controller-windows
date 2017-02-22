@@ -11,7 +11,7 @@ int extra2 = 6;
 void setup() {
 //  Serial.begin(9600);
   setupUnoJoy();
-  for(int i=13; i>=6;i--){ //An example of laziness 
+  for(int i=12; i>=5;i--){ //An example of laziness 
   pinMode(i,INPUT_PULLUP);  
   } 
 }
@@ -41,10 +41,10 @@ dataForController_t getControllerData(void){
   controllerData.circleOn = !digitalRead(roofDoor);
   controllerData.squareOn = !digitalRead(flyWheel);
   controllerData.crossOn = !digitalRead(climb);
-  controllerData.l10n = !digitalRead(ag_forward);
-  controllerData.l20n = !digitalRead(ag_backwards);
-  controllerData.r10n = !digitalRead(extra1);
-  controllerData.r20n = !digitalRead(extra2);
+  controllerData.l1On = !digitalRead(ag_forward);
+  controllerData.l2On = !digitalRead(ag_backwards);
+  controllerData.r1On = !digitalRead(extra1);
+  controllerData.r2On = !digitalRead(extra2);
   
   return controllerData;
 }
