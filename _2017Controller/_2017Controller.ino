@@ -8,10 +8,13 @@ int ag_backwards = 9;
 int climb = 8;
 int extra1 = 7;
 int extra2 = 6;
+int extra3 = 2;
+int extra4 = 4;
+int extra5 = 3;
 void setup() {
 //  Serial.begin(9600);
   setupUnoJoy();
-  for(int i=12; i>=5;i--){ //An example of laziness 
+  for(int i=12; i>=3;i--){ //An example of laziness 
   pinMode(i,INPUT_PULLUP);  
   } 
 }
@@ -35,6 +38,9 @@ dataForController_t getControllerData(void){
   climb -> cross (x) 
   extra1 -> r10n 
   extra2 -> r20n
+  extra3 -> r30n
+  extra4 -> StartOn
+  extra5 -> l30n
   */
 
   controllerData.triangleOn = !digitalRead(trapDoor);
@@ -45,7 +51,9 @@ dataForController_t getControllerData(void){
   controllerData.l2On = !digitalRead(ag_backwards);
   controllerData.r1On = !digitalRead(extra1);
   controllerData.r2On = !digitalRead(extra2);
-  
+  controllerData.r30n = !digitalRead(extra3);
+  controllerData.startOn =!digitalRead(extra4);
+  controllerData.l30n = !digitalRead(extra5);
   return controllerData;
 }
 
